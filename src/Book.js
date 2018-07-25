@@ -4,7 +4,7 @@ class Book extends Component {
   
   changeBookShelf = (event) => {
     this.setState({
-      status: event.target.value
+      shelf: event.target.value
     })
     this.props.onChangeShelf(this.props.book, event.target.value)
   }
@@ -14,7 +14,7 @@ class Book extends Component {
     const style = {
       width: 128,
       height: 192,
-      backgroundImage: book.backgroundImage
+      backgroundImage: `url("${book.imageLinks.thumbnail}")`
     }
 
     return (
@@ -23,7 +23,7 @@ class Book extends Component {
           <div className="book-top">
               <div className="book-cover" style={style}></div>
             <div className="book-shelf-changer">
-              <select onChange={this.changeBookShelf} value={book.status}>
+              <select onChange={this.changeBookShelf} value={book.shelf}>
                 <option value="move" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
@@ -33,7 +33,7 @@ class Book extends Component {
             </div>
           </div>
               <div className="book-title" key={book.title}>{book.title}</div>
-              <div className="book-authors" key={book.author}>{book.author}</div>
+              <div className="book-authors" key={book.authors}>{book.authors}</div>
         </div>
       </li>
     )

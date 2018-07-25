@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
 class BookList extends Component {
   render() {
     const books = this.props.books
-    const readingBooks = books.filter(book => book.status === 'currentlyReading')
-    const wantToReadBooks = books.filter(book => book.status === 'wantToRead')
-    const readBooks = books.filter(book => book.status === 'read')
+    const readingBooks = books.filter(book => book.shelf === 'currentlyReading')
+    const wantToReadBooks = books.filter(book => book.shelf === 'wantToRead')
+    const readBooks = books.filter(book => book.shelf === 'read')
     return (
       <div className="list-books-content">
         <div>
