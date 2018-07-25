@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BookList from './BookList'
+import PropTypes from 'prop-types'
 
 class BooksApp extends Component {
   state = {
@@ -108,7 +109,10 @@ class BooksApp extends Component {
             <div className="list-books-title">
               <h1>MyReads</h1>
             </div>
-            <BookList onChangeShelf={this.changeShelf} books={this.state.books} />
+            <BookList
+              onChangeShelf={this.changeShelf}
+              books={this.state.books}
+            />
             <div className="open-search">
               <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
             </div>
@@ -117,6 +121,11 @@ class BooksApp extends Component {
       </div>
     )
   }
+}
+
+BookList.propTypes = {
+  onChangeShelf: PropTypes.func.isRequired,
+  books: PropTypes.array.isRequired
 }
 
 export default BooksApp

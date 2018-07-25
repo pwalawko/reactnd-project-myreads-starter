@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Book from './Book'
+import PropTypes from 'prop-types'
 
 class BookList extends Component {
   render() {
@@ -15,7 +16,11 @@ class BookList extends Component {
             <div className="bookshelf-books">
               <ol className="books-grid">
                 {readingBooks.map(book =>
-                  <Book onChangeShelf={this.props.onChangeShelf} key={book.id} book={book} />
+                  <Book
+                    onChangeShelf={this.props.onChangeShelf}
+                    key={book.id}
+                    book={book}
+                  />
                 )}
               </ol>
             </div>
@@ -25,7 +30,11 @@ class BookList extends Component {
             <div className="bookshelf-books">
               <ol className="books-grid">
                 {wantToReadBooks.map(book =>
-                  <Book onChangeShelf={this.props.onChangeShelf} key={book.id} book={book} />
+                  <Book
+                    onChangeShelf={this.props.onChangeShelf}
+                    key={book.id}
+                    book={book}
+                  />
                 )}
               </ol>
             </div>
@@ -35,7 +44,11 @@ class BookList extends Component {
             <div className="bookshelf-books">
               <ol className="books-grid">
                 {readBooks.map(book =>
-                  <Book onChangeShelf={this.props.onChangeShelf} key={book.id} book={book} />
+                  <Book
+                  onChangeShelf={this.props.onChangeShelf}
+                  key={book.id}
+                  book={book}
+                />
                 )}
               </ol>
             </div>
@@ -45,6 +58,11 @@ class BookList extends Component {
 
     )
   }
+}
+
+Book.propTypes = {
+  onChangeShelf: PropTypes.func.isRequired,
+  book: PropTypes.object.isRequired
 }
 
 export default BookList
