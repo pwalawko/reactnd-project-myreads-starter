@@ -14,7 +14,8 @@ class Book extends Component {
     const style = {
       width: 128,
       height: 192,
-      backgroundImage: `url("${book.imageLinks.thumbnail}")`
+      backgroundImage: book.imageLinks ?
+        `url("${book.imageLinks.thumbnail}")` : ''
     }
 
     return (

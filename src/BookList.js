@@ -61,7 +61,7 @@ class BookList extends Component {
 }
 
 Book.propTypes = {
-  onChangeShelf: PropTypes.func.isRequired,
+  onChangeShelf: PropTypes.func,
   book: PropTypes.object.isRequired
 }
 
